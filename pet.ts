@@ -1,3 +1,12 @@
+enum Status {
+    idle,
+    sleeping,
+    eating,
+    playing,
+    dying,
+    jumping
+}
+
 class Pet {
     private static readonly MaxHunger: number = 100;
     private static readonly MaxHealth: number = 100;

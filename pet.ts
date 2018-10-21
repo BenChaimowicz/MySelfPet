@@ -4,7 +4,8 @@ enum Status {
     eating,
     playing,
     dying,
-    jumping
+    jumping,
+    sick
 }
 
 class Pet {
@@ -54,5 +55,17 @@ class Pet {
     }
     public get status(): Status{
         return this._status;
+    }
+
+    public feed(food: Food) {
+        this._hunger += food.hungerValue;
+
+        if (food.expiration > new Date()) {
+            this._status = Status.sick;
+        }
+    }
+    public play(toy: Toy) {
+        this._fun += toy.fun;
+        toy.use();
     }
 }

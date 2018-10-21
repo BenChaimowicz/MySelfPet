@@ -4,15 +4,20 @@ class Toy {
     imageURL: string;
     fun: number;
     uses: number;
+    maxUses: number;
+
 
     constructor() {
+    }
 
+    public use() {
+        if (this.uses > 0) {
+            this.uses--;
+        }
     }
 }
 
 class Stick extends Toy {
-
-    private _usesLeft: number;
 
     constructor() {
         super();
@@ -20,12 +25,7 @@ class Stick extends Toy {
         this.price = 4;
         this.fun = 10;
         this.uses = 4;
-        this._usesLeft = this.uses;
+        this.maxUses = this.uses;
     }
 
-    public use() {
-        if (this._usesLeft > 0) {
-            this._usesLeft--;
-        }
-    }
 }

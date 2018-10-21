@@ -2,6 +2,11 @@
 class Toy {
     constructor() {
     }
+    use() {
+        if (this.uses > 0) {
+            this.uses--;
+        }
+    }
 }
 class Stick extends Toy {
     constructor() {
@@ -10,11 +15,6 @@ class Stick extends Toy {
         this.price = 4;
         this.fun = 10;
         this.uses = 4;
-        this._usesLeft = this.uses;
-    }
-    use() {
-        if (this._usesLeft > 0) {
-            this._usesLeft--;
-        }
+        this.maxUses = this.uses;
     }
 }

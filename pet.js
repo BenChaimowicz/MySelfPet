@@ -7,6 +7,7 @@ var Status;
     Status[Status["playing"] = 3] = "playing";
     Status[Status["dying"] = 4] = "dying";
     Status[Status["jumping"] = 5] = "jumping";
+    Status[Status["sick"] = 6] = "sick";
 })(Status || (Status = {}));
 class Pet {
     constructor() {
@@ -45,6 +46,16 @@ class Pet {
     }
     get status() {
         return this._status;
+    }
+    feed(food) {
+        this._hunger += food.hungerValue;
+        if (food.expiration > new Date()) {
+            this._status = Status.sick;
+        }
+    }
+    play(toy) {
+        this._fun += toy.fun;
+        toy.use();
     }
 }
 Pet.MaxHunger = 100;
